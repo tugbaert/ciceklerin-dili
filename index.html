@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Çiçeklerin Dili: Duygularınızı ifade etmenin en zarif yolu. Aşk, özür, tebrik ve ayrılık için çiçek anlamları rehberi.">
+    <title>Çiçeklerin Dili | Estetik ve Duygu</title>
+    
+    <link rel="icon" href="image/yenilogoust.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="image/yenilogo.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Çiçeklerin Dili",
+      "url": "https://www.ciceklerindili.com/",
+      "description": "Duygularınızı ifade etmenin en zarif yolu. Aşk, özür, tebrik ve ayrılık için çiçek anlamları rehberi."
+    }
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">İçeriğe Atla</a>
+
+    <div id="page-loader">
+        <div class="loader-icon"><span data-lucide="flower" aria-hidden="true"></span></div>
+        <div class="loader-text" id="loaderText">Yükleniyor...</div>
+    </div>
+
+    <div class="site-wrapper">
+        <header>
+            <div class="header-left">
+                <button class="menu-btn" id="openMenuBtn" aria-label="Menüyü Aç" aria-expanded="false"><span data-lucide="menu" aria-hidden="false"></span></button>
+            </div>
+            
+            <a href="#" class="brand-logo" id="headerLogo" onclick="navigateTo('home-view')" aria-label="Anasayfaya Git">
+                <img src="image/yenilogo.png" alt="Çiçeklerin Dili" class="brand-img">
+                <div class="brand-text">
+                    <span class="brand-title" id="logoTitleText">Çiçeklerin Dili</span>
+                    <span class="brand-subtitle" id="logoSubtitleText">DUYGU, ÇİÇEK AÇAR.</span>
+                </div>
+            </a>
+            
+            <div class="header-controls">
+                <button class="header-btn" id="langBtn" aria-label="Dili Değiştir">EN</button>
+                <button class="header-btn" id="themeBtn" aria-label="Temayı Değiştir"><span data-lucide="moon" aria-hidden="false"></span></button>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <div class="search-container" id="globalSearchContainer" style="display: none;">
+                <input type="search" class="search-box" id="searchInput" placeholder="Duygu, çiçek adı veya etiket ara..." aria-label="Site içi arama yapın">
+                <span class="search-icon"><span data-lucide="search" aria-hidden="false"></span></span>
+            </div>
+
+            <section id="home-view" class="view-section active" aria-labelledby="home-title">
+                <div class="hero-banner">
+                    <h1 id="home-title" style="font-size: 4rem; margin-bottom: 15px; max-width: 650px;">Duygularınızı Çiçeklerle İfade Edin</h1>
+                    <p id="home-subtitle" style="font-size: 1.6rem; font-weight: bold; color: var(--accent); max-width: 650px;">Hangi duyguya hangi çiçek? Anlamlarını keşfederek en doğru çiçeği bulun.</p>
+                </div>
+
+                <div class="search-container" id="homeSearchContainer">
+                    <input type="search" class="search-box" id="homeSearchInput" placeholder="Duygu, çiçek veya etiket ara..." aria-label="Site içi arama yapın">
+                    <span class="search-icon"><span data-lucide="search" aria-hidden="false"></span></span>
+                </div>
+                
+                <nav class="emotions-grid" id="categoryButtons" aria-label="Duygu Kategorileri"></nav>
+            </section>
+
+            <section id="category-view" class="view-section" aria-labelledby="catTitle">
+                <div class="search-container" id="catSearchContainer" style="margin-top: 10px;">
+                    <input type="search" class="search-box" id="catSearchInput" placeholder="Duygu, çiçek veya etiket ara..." aria-label="Site içi arama yapın">
+                    <span class="search-icon"><span data-lucide="search" aria-hidden="false"></span></span>
+                </div>
+
+                <header class="category-header">
+                    <button class="back-btn" id="backToHomeBtn" aria-label="Geri Dön">← Geri</button>
+                    <h2 class="category-title" id="catTitle">Kategori Adı</h2>
+                    <div class="header-controls-right">
+                        <span class="category-count" id="catCount">0 Çiçek</span>
+                        <div class="view-toggles" aria-label="Görünüm Seçenekleri">
+                            <button id="btn-list" class="active" aria-label="Liste Görünümü" aria-pressed="true"><span data-lucide="list" aria-hidden="true"></span></button>
+                            <button id="btn-grid" aria-label="Izgara Görünümü" aria-pressed="false"><span data-lucide="layout-grid" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                </header>
+                
+                <p class="search-message" id="searchMsg">Aradığınız kelimeye uygun sonuç bulunamadı. 🥀</p>
+                <article class="flowers-container list" id="flowerList"></article>
+            </section>
+
+            <section id="about-view" class="view-section" aria-labelledby="about-title">
+                <div class="text-content">
+                    <h2 id="about-title" style="text-align: center; margin-bottom: 40px; font-size: 3rem;">Hakkımızda</h2>
+                    <p id="ab-main-text" style="margin-bottom: 40px;">Çiçeklerin Dili, duygularınızı ifade etmekte zorlandığınız anlarda doğanın zarif dilini size hatırlatan dijital bir rehberdir. Amacımız, çiçeklerin binlerce yıllık anlamlarını keşfetmenizi sağlayarak, her duygu için en doğru çiçeği bulmanıza yardımcı olmaktır.</p>
+                    <div style="border-left: 5px solid var(--accent); padding-left: 25px; margin-bottom: 40px;">
+                        <p><strong id="ab-mission-title" style="font-size: 1.6rem; color: var(--primary);">Misyonumuz</strong><br> <span id="ab-mission-text">İnsanların sevdiklerine çiçek seçerken yaşadıkları kararsızlığı ortadan kaldırmaktır. Aşk, tebrik, özür veya veda gibi özel anlarda, hangi çiçeğin ne anlama geldiğini en açık ve anlaşılır şekilde öğrenmenizi sağlıyoruz.</span></p>
+                    </div>
+                    <div style="border-left: 5px solid var(--primary); padding-left: 25px; margin-bottom: 30px;">
+                        <p><strong id="ab-vision-title" style="font-size: 1.6rem; color: var(--primary);">Vizyonumuz</strong><br> <span id="ab-vision-text">Çiçeklerin kültürel mirasını dijital bir kütüphanede toplayarak, en sevilen ve en güvenilir çiçek sözlüğü olmaktır. Duyguların en zarif şekilde ifade edilmesine rehberlik eden bir dijital ekosistem oluşturmayı hedefliyoruz.</span></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="footer-section">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h2>Çiçeklerin Dili</h2>
+                        <p id="ft-desc" style="opacity: 0.8; max-width: 300px; line-height: 1.8;">Zarafet, Duygu ve Doğanın Sessiz Şiiri. Çiçeklerin dünyasını bizimle keşfedin.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4 id="ft-menu-title">Hızlı Menü</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" id="ft-link-home" onclick="navigateTo('home-view')">Anasayfa</a></li>
+                            <li><a href="#" id="ft-link-all" onclick="navigateTo('category-view', 'all')">Tüm Çiçekler</a></li>
+                            <li><a href="#" id="ft-link-about" onclick="navigateTo('about-view')">Hakkımızda</a></li>
+                            <li><a href="#" id="ft-link-contact" data-modal="contact">İletişim</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 id="ft-contact-title">İletişim ve Sosyal</h4>
+                        <ul class="contact-info footer-links">
+                            <li><span data-lucide="mail" aria-hidden="true"></span> info@ciceklerindili.com</li>
+                            <li><span data-lucide="phone" aria-hidden="true"></span> +90 (555) 000 00 00</li>
+                            <li><a href="https://www.instagram.com/_ciceklerindili?igsh=c2dpanNxaDcycmpz" target="_blank" rel="noopener noreferrer"><span class="fa-brands fa-instagram" aria-hidden="true"></span> Instagram</a></li>
+                            <li><a href="#"><span class="fa-brands fa-twitter" aria-hidden="true"></span> Twitter</a></li>
+                            <li><a href="#"><span class="fa-brands fa-facebook" aria-hidden="true"></span> Facebook</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom"><p id="ft-copyright">© 2026 Çiçeklerin Dili. Tüm Hakları Saklıdır.</p></div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="false"></div>
+    <nav class="sidebar" id="sidebar" aria-label="Ana Menü">
+        <button class="sidebar-close" id="closeMenuBtn" aria-label="Menüyü Kapat"><span data-lucide="x" aria-hidden="false"></span></button>
+        <ul class="sidebar-menu">
+            <li><a href="#" id="menu-home" data-target="home-view"><span data-lucide="home" aria-hidden="true"></span> Anasayfa</a></li>
+            <li>
+                <a href="#" id="menu-emotions" style="padding-bottom: 5px;">
+                    <div style="display:flex; align-items:center; gap:15px;"><span data-lucide="heart" aria-hidden="true"></span> Duygu/Durumlar</div>
+                    <span data-lucide="chevron-down" class="menu-arrow" aria-hidden="true"></span>
+                </a>
+                <ul class="submenu">
+                    <li><a href="#" data-target="category-view" data-cat="love" id="sub-love">Aşk ve Sevgi</a></li>
+                    <li><a href="#" data-target="category-view" data-cat="apology" id="sub-apology">Özür ve Pişmanlık</a></li>
+                    <li><a href="#" data-target="category-view" data-cat="congrats" id="sub-congrats">Tebrik ve Başarı</a></li>
+                    <li><a href="#" data-target="category-view" data-cat="hate" id="sub-hate">Veda ve Ayrılık</a></li>
+                </ul>
+            </li>
+            <li><a href="#" id="menu-all" data-target="category-view" data-cat="all"><span data-lucide="layout-grid" aria-hidden="true"></span> Tüm Çiçekler</a></li>
+            <li><a href="#" id="menu-about" data-target="about-view"><span data-lucide="info" aria-hidden="true"></span> Hakkımızda</a></li>
+            <li><a href="#" id="menu-contact" data-modal="contact"><span data-lucide="mail-plus" aria-hidden="true"></span> İletişim</a></li>
+        </ul>
+    </nav>
+
+    <div class="modal-overlay-contact" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeContactBtn"><span data-lucide="x" aria-hidden="true"></span></button>
+            <h2 id="modal-title" style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">Bizimle İletişime Geçin</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="contactName" id="lbl-name">Adınız</label>
+                    <input type="text" id="contactName" required placeholder="Adınız Soyadınız">
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail" id="lbl-email">E-posta Adresiniz</label>
+                    <input type="email" id="contactEmail" required placeholder="ornek@mail.com">
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage" id="lbl-message">Mesajınız</label>
+                    <textarea id="contactMessage" rows="4" required placeholder="Sorunuzu veya mesajınızı buraya yazın..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="btn-submit">
+                    <span id="btn-text">Gönder</span> <span data-lucide="send" id="btn-icon" aria-hidden="true"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastBox">
+        <span data-lucide="check-circle" aria-hidden="true"></span> <span id="toastMsg">İşlem başarılı!</span>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="app.js"></script>
+</body>
+</html>
