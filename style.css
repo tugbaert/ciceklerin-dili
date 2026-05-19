@@ -505,3 +505,8 @@ footer {
     .contact-info li { justify-content: center; }
     .footer-links a:hover { padding-left: 0; transform: scale(1.05); display: inline-block; }
 }
+@media (min-width: 1024px) {
+    body {
+        zoom: 0.75; 
+    }
+}
